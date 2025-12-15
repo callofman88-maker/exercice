@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll'Hess | L'Élégance Intemporelle</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Roll'Hess<span class="dot">.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Accueil</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#histoire">Notre Histoire</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-subtitle">Redéfinir le Luxe</span>
+            <h1>Roll'Hess</h1>
+            <p class="hero-description">L'alliance parfaite entre l'audace du noir, la pureté du blanc et l'éclat de
+                l'or. Portez l'excellence à votre poignet.</p>
+            <div class="hero-buttons">
+                <a href="#collection" class="btn btn-primary">Découvrir la Collection</a>
+                <a href="#histoire" class="btn btn-outline">En Savoir Plus</a>
+            </div>
+        </div>
+
+        <div class="scroll-down">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <section id="collection"
+        style="height: 100vh; background-color: #f4f4f4; display: flex; align-items: center; justify-content: center;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #0a0a0a;">La Collection</h2>
+    </section>
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>
