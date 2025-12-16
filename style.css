@@ -282,6 +282,344 @@ h1 {
     }
 }
 
+/* Watch Carousel Section */
+.watches-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Elements - Luxury Pattern */
+.watches-section::before,
+.watches-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    pointer-events: none;
+    opacity: 0.25;
+    background-image:
+        /* Vertical lines */
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 30px,
+            var(--color-gold) 30px,
+            var(--color-gold) 31px),
+        /* Diagonal pattern */
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 50px,
+            rgba(212, 175, 55, 0.1) 50px,
+            rgba(212, 175, 55, 0.1) 51px),
+        /* Circles pattern */
+        radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
+}
+
+.watches-section::before {
+    left: 0;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+}
+
+.watches-section::after {
+    right: 0;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+}
+
+/* Decorative corner elements */
+.watches-section .container {
+    position: relative;
+}
+
+.watches-section .container::before,
+.watches-section .container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--color-gold);
+    border-radius: 50%;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.watches-section .container::before {
+    left: -150px;
+    box-shadow:
+        0 0 30px rgba(212, 175, 55, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+    animation: rotateClockwise 20s linear infinite;
+}
+
+.watches-section .container::after {
+    right: -150px;
+    box-shadow:
+        0 0 30px rgba(212, 175, 55, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.1);
+    animation: rotateCounterClockwise 20s linear infinite;
+}
+
+/* Additional luxury accents */
+.section-title::before,
+.section-title::after {
+    content: '◆';
+    color: var(--color-gold);
+    font-size: 0.5em;
+    margin: 0 1rem;
+    opacity: 0.6;
+    display: inline-block;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(-360deg);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-grey);
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.watches-grid {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.watches-grid-wrapper {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.watch-card {
+    background: rgba(18, 18, 18, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+    min-width: 400px;
+    flex-shrink: 0;
+    margin-right: 2rem;
+}
+
+.watch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.watch-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+.watch-card:hover::before {
+    transform: scaleX(1);
+}
+
+.watch-image-container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    border-radius: 8px;
+}
+
+.watch-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.watch-card:hover .watch-image {
+    transform: scale(1.05);
+}
+
+.watch-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.watch-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.watch-price {
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.watch-specs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    transform: translateY(100%);
+    transition: var(--transition);
+    border-top: 2px solid var(--color-gold);
+}
+
+.watch-card:hover .watch-specs {
+    transform: translateY(0);
+}
+
+.watch-specs h4 {
+    font-family: var(--font-serif);
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.watch-specs ul {
+    list-style: none;
+}
+
+.watch-specs li {
+    color: var(--color-white);
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 300;
+}
+
+.watch-specs li i {
+    color: var(--color-gold);
+    font-size: 0.8rem;
+    width: 16px;
+}
+
+/* Carousel Navigation */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.carousel-btn {
+    background: rgba(212, 175, 55, 0.1);
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background: var(--color-gold);
+    color: var(--color-black);
+    transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-indicator.active {
+    background: var(--color-gold);
+    transform: scale(1.2);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
